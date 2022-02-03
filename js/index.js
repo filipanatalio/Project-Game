@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas1");
 const ctx = canvas.getContext("2d");
 
-//global variables
+//GLOBAL VARIABLES
 const cellSize = 100;
 const cellGap = 3;
 let numberOfResources = 300;
@@ -18,7 +18,7 @@ const enemyPositions = [];
 const projectiles = [];
 const resources = [];
 
-//mouse
+//MOUSE ON THE SCREEN
 const mouse = {
   x: 10,
   y: 10,
@@ -35,7 +35,7 @@ canvas.addEventListener("mouseleave", function () {
   mouse.y = undefined;
 });
 
-//game board
+//GAME LAYOUT
 const controlsBar = {
   width: canvas.width,
   height: cellSize,
@@ -69,7 +69,8 @@ function handleGameGrid() {
     gameGrid[i].draw();
   }
 }
-//projectiles
+
+//MISSILES
 class Projectile {
   constructor(x, y) {
     this.x = x;
@@ -112,9 +113,9 @@ function handleProjectiles() {
     }
   }
 }
-//defenders
+// DEFENDERS
 const defender = new Image();
-defender.src = "/images/defender.png";
+defender.src = "./images/defender.png";
 class Defender {
   constructor(x, y) {
     this.x = x;
@@ -194,7 +195,7 @@ function handleDefenders() {
     }
   }
 }
-// Floating Messages
+// FLOATING MESSAGES
 const floatingMessages = [];
 class floatingMessage {
   constructor(value, x, y, size, color) {
@@ -229,13 +230,13 @@ function handleFloatingMessages() {
     }
   }
 }
-//enemies
+//ENEMIES
 const enemyTypes = [];
 const enemy1 = new Image();
-enemy1.src = "/images/enemy1.png";
+enemy1.src = "./images/enemy1.png";
 enemyTypes.push(enemy1);
 const enemy2 = new Image();
-enemy2.src = "/images/enemy2.png";
+enemy2.src = "./images/enemy2.png";
 enemyTypes.push(enemy2);
 
 class Enemy {
@@ -323,7 +324,7 @@ function handleEnemies() {
   }
 }
 
-// resources
+// RESOURCES
 const amounts = [20, 30, 40];
 class Resource {
   constructor() {
@@ -366,7 +367,7 @@ function handleResources() {
     }
   }
 }
-//utilities
+//GAME OVER / WINS
 function handleGameStatus() {
   ctx.fillStyle = "gold";
   ctx.font = "20px Orbitron";
