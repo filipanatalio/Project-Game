@@ -115,7 +115,7 @@ function handleProjectiles() {
 }
 // DEFENDERS
 const defender = new Image();
-defender.src = "./images/defender.png";
+defender.src = "./docs/images/defender.png";
 class Defender {
   constructor(x, y) {
     this.x = x;
@@ -233,10 +233,10 @@ function handleFloatingMessages() {
 //ENEMIES
 const enemyTypes = [];
 const enemy1 = new Image();
-enemy1.src = "./images/enemy1.png";
+enemy1.src = "./docs/images/enemy1.png";
 enemyTypes.push(enemy1);
 const enemy2 = new Image();
-enemy2.src = "./images/enemy2.png";
+enemy2.src = "./docs/images/enemy2.png";
 enemyTypes.push(enemy2);
 
 class Enemy {
