@@ -378,6 +378,7 @@ function handleResources() {
 function handleGameStatus() {
   ctx.fillStyle = "#A4D7E5 ";
   ctx.font = "20px Orbitron";
+  ctx.fillText("Asteroid War", 120, 56);
   ctx.fillText("Score: " + score, 700, 40);
   ctx.fillText("💰💰: " + numberOfResources, 700, 80);
   if (gameOver) {
