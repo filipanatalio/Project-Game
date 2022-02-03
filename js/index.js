@@ -49,7 +49,7 @@ class Cell {
   }
   draw() {
     if (mouse.x && mouse.y && collision(this, mouse)) {
-      ctx.strokeStyle = "black";
+      ctx.strokeStyle = "grey";
       ctx.strokeRect(this.x, this.y, this.width, this.height);
     }
   }
@@ -84,7 +84,7 @@ class Projectile {
     this.x += this.speed;
   }
   draw() {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.width, 0, Math.PI * 2);
     ctx.fill();
@@ -137,7 +137,7 @@ class Defender {
   draw() {
     ctx.fillStyle = "transparent";
     ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.fillStyle = "green";
+    // ctx.fillStyle = "green";
     ctx.font = "20px Orbitron";
     ctx.fillText(Math.floor(this.health), this.x + 15, this.y + 30);
     ctx.drawImage(
@@ -267,7 +267,7 @@ class Enemy {
   draw() {
     //ctx.fillStyle = "red";
     //ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "#E52D2D";
     ctx.font = "20px Orbitron";
     ctx.fillText(Math.floor(this.health), this.x + 15, this.y + 30);
     //ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh);
@@ -284,6 +284,7 @@ class Enemy {
     );
   }
 }
+
 function handleEnemies() {
   for (let i = 0; i < enemies.length; i++) {
     enemies[i].update();
@@ -298,12 +299,12 @@ function handleEnemies() {
           "+" + gainedResourses,
           enemies[i].x,
           enemies[i].y,
-          30,
-          "black"
+          20,
+          "white"
         )
       );
       floatingMessages.push(
-        new floatingMessage("+" + gainedResourses, 250, 50, 30, "gold")
+        new floatingMessage("+" + gainedResourses, 250, 50, 30, "white")
       );
 
       numberOfResources += gainedResourses;
@@ -325,20 +326,26 @@ function handleEnemies() {
 }
 
 // RESOURCES
+
 const amounts = [20, 30, 40];
 class Resource {
   constructor() {
+    this.img = new Image();
     this.x = Math.random() * (canvas.width - cellSize);
     this.y = (Math.floor(Math.random() * 5) + 1) * cellSize + 25;
-    this.width = cellSize * 0.6;
-    this.height = cellSize * 0.6;
+    this.width = cellSize * 0.9;
+    this.height = cellSize * 0.9;
     this.amount = amounts[Math.floor(Math.random() * amounts.length)];
   }
   draw() {
-    ctx.fillStyle = "yellow";
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-    ctx.fillStyle = "black";
-    ctx.font = "20px Orbitron";
+    this.img.src = "./docs/images/money.PNG";
+    ctx.drawImage(this.img, this.x, this.y, 100, 100);
+
+    // ctx.fillStyle = "yellow";
+    //ctx.fillRect(this.x, this.y, this.width, this.height);
+
+    ctx.fillStyle = "white";
+    ctx.font = "15px Orbitron";
     ctx.fillText(this.amount, this.x + 15, this.y + 25);
   }
 }
@@ -369,19 +376,19 @@ function handleResources() {
 }
 //GAME OVER / WINS
 function handleGameStatus() {
-  ctx.fillStyle = "gold";
+  ctx.fillStyle = "#A4D7E5 ";
   ctx.font = "20px Orbitron";
   ctx.fillText("Score: " + score, 700, 40);
-  ctx.fillText("Resources: " + numberOfResources, 700, 80);
+  ctx.fillText("💰💰: " + numberOfResources, 700, 80);
   if (gameOver) {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.font = "90px Orbitron";
-    ctx.fillText("GAME OVER", 135, 300);
+    ctx.fillText("GAME OVER", 115, 300);
   }
   if (score >= winningScore && enemies.length === 0) {
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "white";
     ctx.font = "60px Orbitron ";
-    ctx.fillText("LEVEL COMPLETE", 130, 300);
+    ctx.fillText("LEVEL    COMPLETE", 130, 300);
     ctx.font = "30px Orbitron";
     ctx.fillText("You win with " + score + " points", 134, 340);
   }
@@ -401,14 +408,14 @@ canvas.addEventListener("click", function () {
     numberOfResources -= defenderCost;
   } else {
     floatingMessages.push(
-      new floatingMessage("need more resources", mouse.x, mouse.y, 20, "blue")
+      new floatingMessage("need more resources", mouse.x, mouse.y, 20, "white")
     );
   }
 });
 
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "blue";
+  ctx.fillStyle = "#33455C";
   ctx.fillRect(0, 0, controlsBar.width, controlsBar.height);
   handleGameGrid();
   handleDefenders();
@@ -420,7 +427,7 @@ function animate() {
   frame++;
   if (!gameOver) requestAnimationFrame(animate);
 }
-animate();
+//animate();
 
 function collision(first, second) {
   if (
@@ -437,3 +444,30 @@ function collision(first, second) {
 window.addEventListener("resize", function () {
   canvasPosition = canvas.getBoundingClientRect();
 });
+
+const canvas1 = document.getElementById("canvas1");
+const text = document.getElementById("text");
+const btn = document.getElementById("start-button");
+window.onload = () => {
+  document.getElementById("start-button").onclick = () => {
+    animate();
+    canvas.style.display = "initial";
+    btn.style.display = "none";
+    text.style.display = "none";
+  };
+};
+
+//flex or initial
+
+// const canvas = document.getElementById("canvas1");
+// const text = document.getElementById("text");
+// const btn = document.getElementById("start-button");
+
+// window.onload = () => {
+//   document.getElementById("start-button").onclick = () => {
+//     btn.style.display = "none";
+//     text.style.display = "none";
+//     canvas.style.display = "flex";
+//     animate();
+//   };
+// };

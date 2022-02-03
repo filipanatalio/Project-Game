@@ -5,14 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <title>ATTACK</title>
+    <title>Kill or be killed</title>
 
     <link rel="stylesheet" href="styles/style.css" />
   </head>
 
   <body>
+    <div id="text">
+      <h1>How to play:</h1>
+
+      <p>
+        -Kill enemies by shooting them.If they pass the end line, you lose the
+        game.
+        <br />
+        <br />
+        -You start the game with 300$.
+        <br />
+        <br />
+        -Place the pink soldiers using the mouse directly on the screen.
+        <br />
+        <br />
+        -Each pink soldier costs you 100$.
+        <br />
+        <br />
+        -Grab the bonus to get more money.
+      </p>
+    </div>
+    <div class="button">
+      <button id="start-button">START</button>
+    </div>
     <canvas id="canvas1" width="900" height="600"></canvas>
 
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/enemies.js"></script>
+    <script type="text/javascript" src="js/defender.js"></script>
   </body>
 </html>

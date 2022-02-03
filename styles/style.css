@@ -1,17 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
 
+* {
+  font-family: "Orbitron", sans-serif;
+}
+
 body {
-  background: black;
-  border: 1px solid red;
+  background-image: url(/docs/images/ver/a10.jpg);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
 }
 
 #canvas1 {
-  background: white;
-  font-family: "Orbitron", sans-serif;
+  display: none;
+
+  background-image: url(/docs/images/background.jpg);
+   background-size: cover;
+  background-repeat: no-repeat;*/
+  background-position: center; 
+
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 900px;
   height: 600px;
+  /* border: 5px solid #a4d7e5;
+} */
 }
