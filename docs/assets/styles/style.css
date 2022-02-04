@@ -5,16 +5,29 @@
 }
 
 body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   background-size: cover;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-  align-items: center;
+
+  /* flex-direction: column; */
+  /* justify-content: left;*/
+
   color: aliceblue;
-  width: 16rem;
-  height: 39rem;
+}
+
+#text {
+  /* height: 33vw; */
+  width: 25vw;
+}
+
+#text ul {
+  width: 20vw;
+  line-height: 200%;
 }
 
 #canvas1 {
@@ -24,12 +37,11 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 
-  position: absolute;
-  top: 50%;
+  /* top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 900px;
-  height: 600px;
+  height: 600px; */
   /* border: 5px solid #a4d7e5;
 } */
 }
