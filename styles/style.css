@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: url(../docs/images/ver/a10.jpg);
+  background-image: url(./docs/images/ver/a10.jpg);
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -17,9 +17,9 @@ body {
 }
 
 #canvas1 {
-  display: none;
+  /* display: none; */
 
-  background-image: url(../docs/images/background.jpg);
+  background-image: url(./docs/images/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
