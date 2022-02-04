@@ -115,7 +115,7 @@ function handleProjectiles() {
 }
 // DEFENDERS
 const defender = new Image();
-defender.src = "./docs/images/defender.png";
+defender.src = "./docs/assets/images/defender.png";
 class Defender {
   constructor(x, y) {
     this.x = x;
@@ -233,10 +233,10 @@ function handleFloatingMessages() {
 //ENEMIES
 const enemyTypes = [];
 const enemy1 = new Image();
-enemy1.src = "./docs/images/enemy1.png";
+enemy1.src = "./docs/assets/images/enemy1.png";
 enemyTypes.push(enemy1);
 const enemy2 = new Image();
-enemy2.src = "./docs/images/enemy2.png";
+enemy2.src = "./docs/assets/images/enemy2.png";
 enemyTypes.push(enemy2);
 
 class Enemy {
@@ -338,7 +338,7 @@ class Resource {
     this.amount = amounts[Math.floor(Math.random() * amounts.length)];
   }
   draw() {
-    this.img.src = "./docs/images/money.PNG";
+    this.img.src = "./docs/assets/images/money.PNG";
     ctx.drawImage(this.img, this.x, this.y, 100, 100);
 
     // ctx.fillStyle = "yellow";
@@ -446,15 +446,15 @@ window.addEventListener("resize", function () {
   canvasPosition = canvas.getBoundingClientRect();
 });
 
-const canvas1 = document.getElementById("canvas1");
+// const canvas1 = document.getElementById("canvas1");
 const text = document.getElementById("text");
 const btn = document.getElementById("start-button");
 window.onload = () => {
   document.getElementById("start-button").onclick = () => {
     animate();
-    canvas.style.display = "initial";
+    // canvas.style.display = "initial";
     btn.style.display = "none";
-    text.style.display = "none";
+    // text.style.display = "none";
   };
 };
 

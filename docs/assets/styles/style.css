@@ -5,21 +5,21 @@
 }
 
 body {
-  background-image: url(./docs/images/ver/a10.jpg);
-
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: left;
   align-items: center;
   color: aliceblue;
+  width: 16rem;
+  height: 39rem;
 }
 
 #canvas1 {
   /* display: none; */
 
-  background-image: url(./docs/images/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
